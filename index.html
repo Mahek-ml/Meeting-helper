@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meeting Helper</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Meeting Helper</h1>
+      <p>Track discussions, automate notes, and retrieve past meeting knowledge with built-in RAG.</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Meeting Session</h2>
+        <div class="row">
+          <button id="startMeeting">Start Meeting</button>
+          <button id="endMeeting" disabled>End Meeting</button>
+        </div>
+        <p id="meetingStatus" class="muted">Meeting is not active.</p>
+      </section>
+
+      <section class="card grid-two">
+        <div>
+          <h2>Participants</h2>
+          <div class="row">
+            <input id="participantName" placeholder="Participant name" />
+            <button id="addParticipant">Add</button>
+          </div>
+          <ul id="participantsList"></ul>
+        </div>
+        <div>
+          <h2>Join Meeting</h2>
+          <div class="row">
+            <select id="joinSelect"></select>
+            <button id="markJoined">Mark Joined</button>
+          </div>
+          <button id="notifyAbsent">Notify Non-Joined</button>
+          <ul id="notifications"></ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Stream</h2>
+        <div class="row wrap">
+          <input id="speaker" placeholder="Speaker" />
+          <input id="minute" type="number" min="0" placeholder="Minute mark" />
+          <input id="discussionText" placeholder="Discussion point" class="grow" />
+          <button id="addDiscussion">Add Discussion</button>
+        </div>
+        <p class="muted">Every 5-minute block summary is generated only while meeting is active.</p>
+        <ul id="discussionList"></ul>
+      </section>
+
+      <section class="card grid-two">
+        <div>
+          <h2>5-Minute Summaries</h2>
+          <ul id="intervalSummaries"></ul>
+        </div>
+        <div>
+          <h2>Meeting Notes</h2>
+          <button id="generateNotes">Generate Notes + Email</button>
+          <pre id="meetingNotes" class="pre"></pre>
+          <h3>Mail Outbox</h3>
+          <ul id="mailOutbox"></ul>
+        </div>
+      </section>
+
+      <section class="card grid-two">
+        <div>
+          <h2>Follow-up Calendar</h2>
+          <div class="row wrap">
+            <input id="followTopic" placeholder="Follow-up topic" />
+            <input id="followDate" type="datetime-local" />
+            <button id="scheduleFollowup">Schedule</button>
+          </div>
+          <ul id="calendarList"></ul>
+        </div>
+        <div>
+          <h2>RAG: Ask From Past Meetings</h2>
+          <input id="ragQuery" placeholder="Ask a meeting question" />
+          <button id="runRag">Retrieve Answer</button>
+          <pre id="ragResult" class="pre"></pre>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
